@@ -572,10 +572,11 @@ export default class extends Component {
   renderNextButton = () => {
     let button = null
 
-    if (this.props.loop ||
-      this.state.index !== this.state.total - 1) {
-      button = this.props.nextButton || <Text style={styles.buttonText}>›</Text>
-    }
+    // if (this.props.loop ||
+    //   this.state.index !== this.state.total - 1) {
+    //   || <Text style={styles.buttonText}>›</Text>
+    // }
+    button = this.props.nextButton 
 
     return (
       <TouchableOpacity
@@ -592,12 +593,15 @@ export default class extends Component {
   renderPrevButton = () => {
     let button = null
 
-    if (this.props.loop || this.state.index !== 0) {
-      button = this.props.prevButton || <Text style={styles.buttonText}>‹</Text>
-    }
+    // if (this.props.loop || this.state.index !== 0) {
+    //  || <Text style={styles.buttonText}>‹</Text>
+    // }
+    button = this.props.prevButton 
 
     return (
-      <TouchableOpacity onPress={() => button !== null && this.scrollBy(-1)}>
+      <TouchableOpacity onPress={() => button !== null && this.scrollBy(-1)}
+      disabled={this.props.disablePrevButton}
+      >
         <View>
           {button}
         </View>
