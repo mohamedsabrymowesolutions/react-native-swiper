@@ -580,7 +580,10 @@ export default class extends Component {
 
     return (
       <TouchableOpacity
-        onPress={() => button !== null && this.scrollBy(this.state.index < this.props.children.length - 1 ? 1 : 0)}
+        onPress={() => {
+          button !== null && this.scrollBy(this.state.index < this.props.children.length - 1 ? 1 : null)
+          console.log("this.state.index", this.state.index, this.props.children.length)
+        }}
         disabled={this.state.index == this.props.children.length - 1}
       >
         <View>
@@ -599,7 +602,11 @@ export default class extends Component {
     button = this.props.prevButton
 
     return (
-      <TouchableOpacity onPress={() => button !== null && this.scrollBy(this.state.index > 0 ? -1 : 0)}
+      <TouchableOpacity onPress={() => {
+        button !== null && this.scrollBy(this.state.index > 0 ? -1 : null)
+        console.log("this.state.index", this.state.index)
+      }
+      }
         disabled={this.state.index == 0}
       >
         <View>
