@@ -582,13 +582,11 @@ export default class extends Component {
       <TouchableOpacity
         onPress={() => {
           button !== null && this.scrollBy(this.state.index < this.props.children.length - 1 ? 1 : null)
-          console.log("this.state.index", this.state.index, this.props.children.length)
+          console.log("this.state.index", this.state.index, "this.props.children.length:", this.props.children.length - 1)
         }}
         disabled={this.state.index == this.props.children.length - 1}
       >
-        <View>
-          {button}
-        </View>
+        {button}
       </TouchableOpacity>
     )
   }
@@ -609,9 +607,7 @@ export default class extends Component {
       }
         disabled={this.state.index == 0}
       >
-        <View>
-          {button}
-        </View>
+        {button}
       </TouchableOpacity>
     )
   }
