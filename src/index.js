@@ -458,6 +458,7 @@ export default class extends Component {
    */
 
   scrollBy = (index, animated = true) => {
+    if (index == 0) return
     if (this.internals.isScrolling || this.state.total < 2) return
     const state = this.state
     const diff = (this.props.loop ? 1 : 0) + index + this.state.index
@@ -584,7 +585,7 @@ export default class extends Component {
     return (
       <TouchableOpacity
         onPress={() => {
-          button !== null && this.scrollBy(this.state.index < this.props.children.length - 1 ? 1 : null)
+          button !== null && this.scrollBy(this.state.index < this.props.children.length - 1 ? 1 : 0)
           console.log("this.state.index", this.state.index, "this.props.children.length:", this.props.children.length - 1)
         }}
         disabled={this.state.index == this.props.children.length - 1}
@@ -604,7 +605,7 @@ export default class extends Component {
 
     return (
       <TouchableOpacity onPress={() => {
-        button !== null && this.scrollBy(this.state.index > 0 ? -1 : null)
+        button !== null && this.scrollBy(this.state.index > 0 ? -1 : 0)
         console.log("this.state.index", this.state.index)
       }
       }
